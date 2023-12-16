@@ -21,14 +21,23 @@ def add_time(start, duration):
     else:
         minutes_start = str(minutes_start + minutes)
     
-    #sommo le ore
-    days = hours / 12
-    hour_extra = hours % 12
+    #ottengo i gioni dividendo per 24, ottengo le ore di avanzo con % 24
+    days = hours / 24
+    hour_extra = hours % 24
     
     total_hours = hours_start + hour_extra
-    if total_hours == 12:
-        
     
+    if total_hours == 12:
+        if pm == True:
+            pm = False
+            am = True
+            total_hours = total_hours - 12
+        else:
+            pm = True
+            am = False
+            total_hours = total_hours - 12
+            
+    total_days = days
     
     
     new_time = []
